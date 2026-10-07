@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ElectroStore – For Engineering Students</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><div class="w">
+<div class="logo">⚙ ElectroStore<small>For Engineering Students</small></div>
+<div class="search"><input id="q" placeholder="Search for components..." oninput="render()"><button>🔍</button></div>
+<nav><a onclick="scrollTo(0,0)">🏠<br>Home</a><a onclick="go('shop')">▦<br>Shop</a><a onclick="tog()">🛒 <b id="cnt">0</b><br>Cart</a><a onclick="go('contact')">👤<br>Contact</a></nav>
+</div></header>
+
+<section class="hero"><div class="w">
+<div class="tag">🎓 For Egyptian Chinese<br>College Students<br>مخصص لطلاب الكلية المصرية الصينية</div>
+<small style="color:#9cc">ELECTRONIC COMPONENTS &amp; MODULES</small>
+<h1>Build Your Ideas<br><span>With the Right Components</span></h1>
+<p>Everything you need for your projects, assignments and experiments – at the best prices, inside the college.</p>
+<div class="badges"><div>🚚 No Shipping Fees<br>Inside the College</div><div>🛡 High Quality<br>Components</div><div>⚡ Better Prices<br>Than RAM (+10–15 EGP)</div></div>
+</div></section>
+
+<div class="w">
+<h2>Shop by Category</h2><div class="cats" id="cats"></div>
+<h2 id="shop">Products</h2><div class="grid" id="grid"></div>
+<div class="feat"><span>🛡 Original &amp; Reliable Components</span><span>🎓 Support for Projects and Assignments</span><span>⚡ Fast &amp; Easy Ordering via WhatsApp</span><span>😊 Friendly Support For Our Students</span></div>
+</div>
+
+<footer id="contact"><div class="w">
+<div><div class="logo" style="color:#fff">⚙ ElectroStore<small>For Engineering Students</small></div><p style="margin-top:8px">كل ما تحتاجه لمشاريعك في مكان واحد</p></div>
+<div><h4>Contact Us</h4>📞 01157570877<br>✉ electrostore97@gmail.com</div>
+<div><h4>Quick Links</h4><a onclick="scrollTo(0,0)">Home</a><a onclick="go('shop')">Shop</a><a onclick="tog()">Cart</a></div>
+<div><h4>Categories</h4><div id="fcats"></div></div>
+</div><div class="w" style="margin-top:16px;font-size:11px">© 2026 ElectroStore. All rights reserved. · Built for Students · Made with ❤ in Egypt</div></footer>
+
+<aside id="cart"><div style="display:flex;justify-content:space-between"><h3>Your Cart</h3><a onclick="tog()" style="cursor:pointer">✖</a></div>
+<div id="items"></div><h3 id="tot"></h3>
+<input id="nm" placeholder="Your name"><input id="ph" placeholder="Phone / Department / Year">
+<button class="btn" onclick="order()">Order via WhatsApp</button></aside>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script></body></html>
