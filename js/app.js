@@ -19,7 +19,20 @@ function save(){sessionStorage.setItem("c",JSON.stringify(cart));cnt.textContent
 function drawCart(){const e=Object.entries(cart);
 items.innerHTML=e.map(([k,v])=>`<div class="row"><span style="flex:1">${k}</span><button onclick="chg(this.dataset.k,-1)" data-k="${k}">−</button>${v.q}<button onclick="chg(this.dataset.k,1)" data-k="${k}">+</button><b>${v.q*v.pr}</b></div>`).join("")||"<p>Cart is empty</p>";
 tot.textContent="Total: "+e.reduce((a,[k,v])=>a+v.q*v.pr,0)+" EGP (no shipping)"}
-function order(){const e=Object.entries(cart);if(!e.length)return;
-let m="*ElectroStore order*\n"+e.map(([k,v])=>`• ${k} x${v.q} = ${v.q*v.pr} EGP`).join("\n")+"\n"+tot.textContent+"\nName: "+nm.value+"\nInfo: "+ph.value;
-open("https://wa.me/"+WA+"?text="+encodeURIComponent(m))}
+function order(){
+  const e=Object.entries(cart);
+  if(!e.length)return;
+  if(!nm.value.trim()||!ph.value.trim()||!cl.value.trim()||!dp.value.trim()){
+    alert("من فضلك اكتب الاسم ورقم التليفون والكلية والقسم");return;
+  }
+  let m="*ElectroStore order*\n"+e.map(([k,v])=>`• ${k} x${v.q} = ${v.q*v.pr} EGP`).join("\n")
+    +"\n"+tot.textContent
+    +"\n\nName: "+nm.value
+    +"\nPhone: "+ph.value
+    +"\nCollege: "+cl.value
+    +"\nDepartment: "+dp.value
+    +"\nYear: "+(yr.value||"-");
+  open("https://wa.me/"+WA+"?text="+encodeURIComponent(m));
+}
+
 render();save();
