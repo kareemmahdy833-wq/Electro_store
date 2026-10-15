@@ -1,212 +1,50 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ElectroStore — متجر مكونات إلكترونية لطلاب الكلية المصرية الصينية: أردوينو، حساسات، مقاومات، ومستلزمات المشاريع بأفضل الأسعار وبدون شحن داخل الكلية.">
-  <title>ElectroStore | مكونات إلكترونية لطلاب الكلية المصرية الصينية</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/placeholder.svg">
-</head>
-<body>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ElectroStore – For Engineering Students</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><div class="w">
+<div class="logo">⚙ ElectroStore<small>For Engineering Students</small></div>
+<div class="search"><input id="q" placeholder="Search for components..." oninput="render()"><button>🔍</button></div>
+<nav><a onclick="scrollTo(0,0)">🏠<br>Home</a><a onclick="go('shop')">▦<br>Shop</a><a onclick="tog()">🛒 <b id="cnt">0</b><br>Cart</a><a onclick="go('contact')">👤<br>Contact</a></nav>
+</div></header>
 
-  <!-- ======= الهيدر الثابت ======= -->
-  <header class="header">
-    <a class="logo" href="#home" aria-label="ElectroStore">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true">
-        <path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5L13 2Z" fill="#3fa9ff"/>
-      </svg>
-      <span>Electro<b>Store</b></span>
-    </a>
+<section class="hero"><div class="w">
+<div class="tag">🎓 For Egyptian Chinese<br>College Students<br>مخصص لطلاب الكلية المصرية الصينية</div>
+<small style="color:#9cc">ELECTRONIC COMPONENTS &amp; MODULES</small>
+<h1>Build Your Ideas<br><span>With the Right Components</span></h1>
+<p>Everything you need for your projects, assignments and experiments – at the best prices, inside the college.</p>
+<div class="badges"><div>🚚 No Shipping Fees<br>Inside the College</div><div>🛡 High Quality<br>Components</div></div>
+</div></section>
 
-    <div class="search-box">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
-      </svg>
-      <input id="searchInput" type="search" autocomplete="off"
-             placeholder="ابحث عن منتج… اردوينو، حساس، مقاومة" aria-label="بحث في المنتجات">
-    </div>
+<div class="w">
+<h2>Shop by Category</h2><div class="cats" id="cats"></div>
+<h2 id="shop">Products</h2><div class="grid" id="grid"></div>
+<div class="feat"><span>🛡 Original &amp; Reliable Components</span><span>🎓 Support for Projects and Assignments</span><span>⚡ Fast &amp; Easy Ordering via WhatsApp</span><span>😊 Friendly Support For Our Students</span></div>
+</div>
 
-    <nav class="nav" aria-label="القائمة الرئيسية">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#shop" class="nav-link">Shop</a>
-      <a href="#" id="cartBtn" class="nav-link cart-link" aria-label="سلة المشتريات">
-        Cart
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M3 4h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.3h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/>
-          <circle cx="10" cy="21" r="1"/><circle cx="17" cy="21" r="1"/>
-        </svg>
-        <span id="cartCount" class="count" hidden>0</span>
-      </a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </header>
+<footer id="contact"><div class="w">
+<div><div class="logo" style="color:#fff">⚙ ElectroStore<small>For Engineering Students</small></div><p style="margin-top:8px">كل ما تحتاجه لمشاريعك في مكان واحد</p></div>
+<div><h4>Contact Us</h4>📞 01503622260<br>✉ electrostore57@gmail.com</div>
+<div><h4>Quick Links</h4><a onclick="scrollTo(0,0)">Home</a><a onclick="go('shop')">Shop</a><a onclick="tog()">Cart</a></div>
+<div><h4>Categories</h4><div id="fcats"></div></div>
+</div><div class="w" style="margin-top:16px;font-size:11px">© 2026 ElectroStore. All rights reserved. · Built for Students · Made with ❤ in Egypt</div></footer>
 
-  <!-- ======= Hero ======= -->
-  <section class="hero" id="home">
-    <div class="hero-inner">
-      <span class="hero-badge">مخصص لطلاب الكلية المصرية الصينية</span>
-      <h1 dir="ltr">Build Your Ideas With the Right Components</h1>
-      <p dir="ltr">Everything you need for your projects, assignments and experiments &ndash; at the best prices, inside the college.</p>
-      <div class="hero-boxes" dir="ltr">
-        <div class="hero-box">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3fa9ff" stroke-width="2" aria-hidden="true"><path d="M3 7h13v8H3zM16 10h2.5l2.5 2.5V15h-5zM6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
-          <span>No Shipping Fees Inside the College</span>
-        </div>
-        <div class="hero-box">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3fa9ff" stroke-width="2" aria-hidden="true"><path d="M12 3 4 7v5c0 4.4 3.4 8.1 8 9 4.6-.9 8-4.6 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>High Quality Components</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<aside id="cart"><div style="display:flex;justify-content:space-between"><h3>Your Cart</h3><a onclick="tog()" style="cursor:pointer">✖</a></div>
+<div id="items"></div><h3 id="tot"></h3>
+<input id="nm" placeholder="Your name">
+<input id="ph" type="tel" placeholder="Phone number">
+<input id="cl" placeholder="College">
+<input id="dp" placeholder="Department">
+<select id="yr">
+  <option value="">Year</option>
+  <option>First year</option>
+  <option>Second year</option>
+  <option>Third year</option>
+  <option>Fourth year</option>
+  <option>Fifth year</option>
+</select>
+<button class="btn" onclick="order()">Order via WhatsApp</button></aside>
 
-  <!-- ======= شريط الميزات ======= -->
-  <section class="features" aria-label="ميزات المتجر">
-    <div class="feature">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 7v5c0 4.4 3.4 8.1 8 9 4.6-.9 8-4.6 8-9V7l-8-4Z"/></svg>
-      <span>قطع أصلية 100%</span>
-    </div>
-    <div class="feature">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 3h5M12 3v4M7 21a4 4 0 0 1-4-4v-3h18v3a4 4 0 0 1-4 4H7Z"/><path d="M3 14v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5"/></svg>
-      <span>دعم للمشاريع</span>
-    </div>
-    <div class="feature">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12Z"/></svg>
-      <span>طلب سريع بواتساب</span>
-    </div>
-    <div class="feature">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5a3.5 3.5 0 0 1 0 7M17.5 14.5a6.5 6.5 0 0 1 4 5.5"/></svg>
-      <span>دعم ودود للطلاب</span>
-    </div>
-  </section>
-
-  <!-- ======= الأقسام ======= -->
-  <section class="section" id="categories">
-    <h2 class="section-title" dir="ltr">Shop by Category</h2>
-    <div class="cat-grid" id="catGrid"></div>
-  </section>
-
-  <!-- ======= المنتجات ======= -->
-  <section class="section" id="shop">
-    <h2 class="section-title" dir="ltr">Products</h2>
-    <div class="chips" id="chips" aria-label="تصفية حسب القسم"></div>
-    <div class="grid" id="grid"></div>
-    <p class="no-results" id="noResults" hidden>مفيش نتائج مطابقة لبحثك — جرّب كلمة تانية أو امسح الفلتر.</p>
-  </section>
-
-  <!-- ======= الفوتر ======= -->
-  <footer class="footer" id="contact">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo footer-logo">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5L13 2Z" fill="#3fa9ff"/></svg>
-          <span>Electro<b>Store</b></span>
-        </div>
-        <p>متجرك الداخلي لمكونات المشاريع الإلكترونية — قطع مختارة بعناية وأسعار مخصصة لطلاب الكلية المصرية الصينية.</p>
-        <a class="contact-line" href="tel:01503622260" dir="ltr">01503622260</a>
-        <a class="contact-line" href="mailto:electrostore57@gmail.com" dir="ltr">electrostore57@gmail.com</a>
-      </div>
-      <div class="footer-col">
-        <h4>روابط سريعة</h4>
-        <a href="#home">الرئيسية</a>
-        <a href="#shop">كل المنتجات</a>
-        <a href="#" id="footerCartBtn">السلة</a>
-        <a href="mailto:electrostore57@gmail.com">اتصل بنا</a>
-      </div>
-      <div class="footer-col">
-        <h4>الأقسام</h4>
-        <div id="footerCats"></div>
-      </div>
-    </div>
-    <div class="copyright">© 2026 ElectroStore — كل الحقوق محفوظة.</div>
-  </footer>
-
-  <!-- ======= سلة المشتريات ======= -->
-  <div class="overlay" id="overlay" hidden></div>
-  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="سلة المشتريات">
-    <div class="drawer-head">
-      <h3>سلة المشتريات</h3>
-      <button class="icon-btn" id="closeCart" aria-label="إغلاق السلة">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5 5 19"/></svg>
-      </button>
-    </div>
-
-    <div class="drawer-items" id="cartItems"></div>
-
-    <div class="drawer-foot">
-      <div class="total-row">
-        <span>الإجمالي</span>
-        <b id="cartTotal">0 ج</b>
-      </div>
-      <div class="ship-note">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h13v8H3zM16 10h2.5l2.5 2.5V15h-5zM6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
-        <span>بدون شحن — الاستلام من داخل الكلية
-          <b class="ship-en" dir="ltr">Delivery: 2&ndash;3 days</b>
-        </span>
-      </div>
-
-      <form id="orderForm" novalidate>
-        <h4>بيانات الطالب</h4>
-        <input id="fName" type="text" placeholder="الاسم بالكامل *" autocomplete="name">
-        <input id="fPhone" type="tel" placeholder="رقم الموبايل *" autocomplete="tel" inputmode="tel">
-        <input id="fCollege" type="text" placeholder="الكلية *">
-        <input id="fDept" type="text" placeholder="القسم / الشعبة *">
-        <select id="fYear">
-          <option value="">السنة الدراسية (اختياري)</option>
-          <option>الأولى</option>
-          <option>التانية</option>
-          <option>التالتة</option>
-          <option>الرابعة</option>
-        </select>
-        <p class="form-error" id="formError" hidden>من فضلك اكمل البيانات المطلوبة (*)</p>
-        <button type="submit" class="btn-order">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12Z"/></svg>
-          اطلب عبر واتساب
-        </button>
-      </form>
-    </div>
-  </aside>
-
-  <!-- ======= مودال تفاصيل المنتج ======= -->
-  <div class="modal-overlay" id="modalOverlay" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mNameAr">
-      <button class="icon-btn modal-close" id="modalClose" aria-label="إغلاق">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5 5 19"/></svg>
-      </button>
-      <div class="modal-img">
-        <img id="mImg" src="images/placeholder.svg" alt="">
-      </div>
-      <div class="modal-info">
-        <span class="modal-cat" id="mCat"></span>
-        <h3 class="modal-name" id="mNameAr"></h3>
-        <p class="modal-name-en" id="mNameEn" dir="ltr" hidden></p>
-        <p class="modal-desc" id="mDesc"></p>
-
-        <div class="modal-opts" id="mOpts"></div>
-
-        <ul class="modal-details" id="mDetails" hidden></ul>
-
-        <div class="modal-buy">
-          <div class="modal-price" id="mPrice"></div>
-          <div class="qty-row" dir="ltr">
-            <button class="qty-btn" id="mQtyMinus" aria-label="تقليل الكمية">&minus;</button>
-            <span class="qty-val" id="mModalQty">1</span>
-            <button class="qty-btn" id="mQtyPlus" aria-label="زيادة الكمية">+</button>
-          </div>
-        </div>
-        <button class="btn-add modal-add" id="mAdd" type="button">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          أضف للسلة
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/products.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+<script src="js/products.js"></script>
+<script src="js/app.js"></script></body></html>
