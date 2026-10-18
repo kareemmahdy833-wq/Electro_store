@@ -7,7 +7,6 @@ const price=p=>p.f??(p.b>=100?p.b+MARKUP:p.b);
 const C=["Arduino & Modules","Resistors","Capacitors","Transistors","Diodes","LEDs","ICs","Breadboards","Jumper Wires","Sensors","Motors & Drivers","Power & Batteries","Tools & Misc"];
 const P=[
 ["Arduino Uno R3","ATmega328P • 5V • 16MHz",C[0],350,1,"uno"],
-["mti avr kit","ATmega328P • 25V • 64MHz",C[0],50,1,"hh"],
 ["Arduino Nano","ATmega328P • Mini USB",C[0],250,0,"nano"],
 ["Arduino Mega 2560","ATmega2560 • 54 I/O",C[0],973,0,"mega"],
 ["ESP32-DEVKITC Development Board (ESP32-WROOM-32D – 16MB Flash)","WiFi + Bluetooth • 30 pin",C[0],280,0,"esp32"],
